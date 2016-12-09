@@ -1,8 +1,7 @@
-;; cube_surface.clj
+;; makeChocolate.clj
 ;; an example problem for clojush, a Push/PushGP system written in Clojure
-;; Nic McPhee, mcphee@morris.umn.edu, 2016
 
-(ns clojush.problems.ec-ai-demos.cube-surface
+(ns clojush.problems.ec-ai-demos.makeChocolate
   (:use [clojush.pushgp.pushgp]
         [clojush.random]
         [clojush pushstate interpreter]
@@ -45,6 +44,61 @@
    [2 4 3]
    [5 8 9]])
 
+;; codingbat makeChocolate input tests
+;; (def input-set
+;;   [[4 1 9]
+;;    [4 1 10]
+;;    [4 1 7]
+;;    [6 2 7]
+;;    [4 1 5]
+;;    [4 1 4]
+;;    [5 4 9]
+;;    [9 3 18]
+;;    [3 1 9]
+;;    [1 2 7]
+;;    [1 2 6]
+;;    [1 2 5]
+;;    [6 1 10]
+;;    [6 1 11]
+;;    [6 1 12]
+;;    [6 1 13]
+;;    [6 2 10]
+;;    [6 2 11]
+;;    [6 2 12]
+;; ;   [60 100 550]
+;; ;   [1000 1000000 5000006]
+;;    [7 1 12]
+;;    [7 1 13]
+;;    [7 2 13]])
+
+
+;; coding bat expected evaluations
+
+;; (4, 1, 9) → 4
+;; (4, 1, 10) → -1
+;; (4, 1, 7) → 2
+;; (6, 2, 7) → 2
+;; (4, 1, 5) → 0
+;; (4, 1, 4) → 4
+;; (5, 4, 9) → 4
+;; (9, 3, 18) → 3
+;; (3, 1, 9) → -1
+;; (1, 2, 7) → -1
+;; (1, 2, 6) → 1
+;; (1, 2, 5) → 0
+;; (6, 1, 10) → 5
+;; (6, 1, 11) → 6
+;; (6, 1, 12) → -1
+;; (6, 1, 13) → -1
+;; (6, 2, 10) → 0
+;; (6, 2, 11) → 1
+;; (6, 2, 12) → 2
+;; (60, 100, 550) → 50
+;; (1000, 1000000, 5000006) → 6
+;; (7, 1, 12) → 7
+;; (7, 1, 13) → -1
+;; (7, 2, 13) → 3
+
 
 ; x is small = 1 kilo
 ; y is big = 5 kilos
@@ -55,11 +109,8 @@
   [inputs]
   (let [[x y z] inputs
     barsLeft (- z (* 5 (min y (/ z 5))))]
-    (if (<= barsLeft x) z)
-    (if (> barsLeft x) -1)))
-
-
-
+    (if (<= barsLeft x) barsLeft
+    (if (> barsLeft x) -1))))
 
 
 ; Make a new push state, and then add every
@@ -97,7 +148,8 @@
           (abs (- expected actual)))))))
 
 (def atom-generators
-  (concat (registered-for-stacks [:integer :boolean :exec])
+  (concat (registered-for-stacks [:integer :boolean])
+          (list 'exec_if)
           (list (fn [] (lrand-int 100))
                 'in1 'in2 'in3)))
 
