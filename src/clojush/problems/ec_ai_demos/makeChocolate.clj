@@ -1,6 +1,5 @@
-;; cube_surface.clj
+;; makeChocolate.clj
 ;; an example problem for clojush, a Push/PushGP system written in Clojure
-;; Nic McPhee, mcphee@morris.umn.edu, 2016
 
 (ns clojush.problems.ec-ai-demos.makeChocolate
   (:use [clojush.pushgp.pushgp]
@@ -17,38 +16,8 @@
 ; makeChocolate(4, 1, 10) → -1
 ; makeChocolate(4, 1, 7) → 2
 
-; (def input-set
-;   [[0 0 0]
-;    [1 1 1]
-;    [1 1 2]
-;    [1 2 1]
-;    [2 1 1]
-;    [1 2 2]
-;    [2 1 2]
-;    [2 2 1]
-;    [1 2 3]
-;    [1 3 2]
-;    [2 1 3]
-;    [3 1 2]
-;    [2 3 1]
-;    [3 2 1]
-;    [1 4 5]
-;    [1 5 4]
-;    [4 1 5]
-;    [5 1 4]
-;    [4 5 1]
-;    [5 4 1]
-;    [2 1 8]
-;    [2 3 4]
-;    [3 4 2]
-;    [4 2 3]
-;    [2 4 3]
-;    [5 8 9]])
-
-   ;; codingbat makeChocolate input tests
-   (def input-set
+(def input-set
      [[4 1 9]
-      [4 1 10]
       [4 1 7]
       [6 2 7]
       [4 1 5]
@@ -61,7 +30,6 @@
       [1 2 5]
       [6 1 10]
       [6 1 11]
-      [6 1 12]
       [6 2 10]
       [6 2 11]
       [6 2 12]
@@ -113,11 +81,11 @@
 (defn expected-output
   [inputs]
   (let [[x y z] inputs
-    barsLeft (- z (* 5 (min y (/ z 5))))]
+    barsLeft (- z (* 5 (min y (quot z 5))))]
     (if (<= barsLeft x) barsLeft
     (if (> barsLeft x) -1))))
 
-(expected-output [40 50 265])
+(expected-output  [6 2 12])
 
 
 ; Make a new push state, and then add every
@@ -158,7 +126,8 @@
   (def atom-generators
       (concat (registered-for-stacks [:integer :boolean])
             (list 'exec_if)
-            (list (fn [] (lrand-int 100))
+            (list 5)
+            (list (fn [] (lrand-int 1000))
           'in1 'in2 'in3)))
 
 (def argmap
