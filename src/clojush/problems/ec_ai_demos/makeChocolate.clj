@@ -30,6 +30,7 @@
       [1 2 5]
       [6 1 10]
       [6 1 11]
+      [6 1 12]
       [6 2 10]
       [6 2 11]
       [6 2 12]
@@ -40,10 +41,17 @@
       [40 50 285]
       [40 50 290]
       [60 100 550]
-      [1000 1000000 5000006]
       [7 1 12]
       [7 1 13]
-      [7 2 13]])
+      [7 2 13]
+      [60 1 65]
+      [80 1 75]
+      [120 2 110]
+      [140 3 16]
+      [4 25 128]
+      [2 30 150]
+      [1 25 126]
+      [5 50 50]])
 
 
    ;; coding bat expected evaluations
@@ -85,7 +93,26 @@
     (if (<= barsLeft x) barsLeft
     (if (> barsLeft x) -1))))
 
-(expected-output  [6 2 12])
+
+(expected-output  [60 1 65])
+
+(expected-output  [80 1 75])
+
+(expected-output  [120 2 110])
+
+(expected-output  [140 3 16])
+
+
+(expected-output  [4 25 128])
+
+(expected-output  [2 30 150])
+
+(expected-output  [1 25 126])
+
+(expected-output  [5 50 50])
+
+
+
 
 
 ; Make a new push state, and then add every
