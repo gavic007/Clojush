@@ -22,10 +22,49 @@ chose this problem because it has simple logic but would be more difficult to so
 than “squirrel play” according to the difficulty ratings on codingBat (224.0 vs. 109.0). 
 We wanted to see if we could push the program evolution framework to solve a slightly harder problem.
 
-How you set up the problem.
+Set-up:
+We first created an input set that was more applicable to our problem, this was initially 
+done by adapting the test cases used for the problem on codingbat, but as we began running 
+the program, we needed to add a number of test cases that are expected to return a larger 
+variety of numbers, as the codingBat tests were limited in this respect to the ones showed above.
 
+We then had to implement a solution to the problem in clojure for the “expected-output” function 
+so our evolved problem had something to compare it’s answers to.
 
-What your results were.
+(defn expected-output
+  [inputs]
+  (let [[x y z] inputs
+    barsLeft (- z (* 5 (min y (quot z 5))))]
+    (if (<= barsLeft x) barsLeft
+    (if (> barsLeft x) -1))))
+    
+*******************************************
+Possible out put???
+*******************************************
+ 
+Results:
+Initially, after some tuning we got our problem setup to evolve a program that returned only 
+one non-zero error for the last 200 or so generations. The error map for the final generation of
+a run using this setup was as follows:	
+Error Map: [0 0 0N 0 0N 0N 0 0 0N 0N 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0]. 
+
+Unfortunately, while this solution program got very close to completely solving all test
+cases and seemed to be using a combination of instructions that resembled our 
+expected-output function, it turned out that the expected-output function had a flaw so
+some of the test cases were being improperly evaluated. After fixing the error (by changing 
+the operation” \” to “quot”), the expected-output function was working correctly, yet our 
+results were no long as close to being solved so further tuning was needed.
+
+After fixing expected-output, the best program of the last generation returned 6 non-zero 
+errors as follows:										
+Error Map: [0 3 0 0 0 0 0 1 0 0 0 1 0 0 1 2 0 0 0 0 0 0 0 0 0 0 1]
+
+While this wasn’t terrible, it still proved to be frustrating as it had got closer before. This 
+was supposed to be a more difficult program to solve, so it may be beyond the scope of running 
+1000 generations in our clojush implementation at this point. 
+One thing to note however is that the program that returned this error map appeared to not 
+use the integer 5 anywhere, which should be required to give workable answers, so if we were 
+able to have the program keep using 5, success may have been in our reach.
 
 
 You should make sure you document any tweaks or changes
