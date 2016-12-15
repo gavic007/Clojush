@@ -1,9 +1,9 @@
-Brittney Ferrian
-Myles Gavic
-Sam Miller
+#Brittney Ferrian
+#Myles Gavic
+#Sam Miller
 
-Csci 4553: Evolve a program
-Markdown Report
+##Csci 4553: Evolve a program
+##Markdown Report
 
 For our proble we chose Make Chocolate which is a logic puzzle drawn from the intermediate logic section on the website codingbat.com.
 http://codingbat.com/prob/p191363
@@ -22,7 +22,7 @@ chose this problem because it has simple logic but would be more difficult to so
 than “squirrel play” according to the difficulty ratings on codingBat (224.0 vs. 109.0). 
 We wanted to see if we could push the program evolution framework to solve a slightly harder problem.
 
-Set-up:
+###Set-up:
 We first created an input set that was more applicable to our problem, this was initially 
 done by adapting the test cases used for the problem on codingbat, but as we began running 
 the program, we needed to add a number of test cases that are expected to return a larger 
@@ -42,7 +42,7 @@ so our evolved problem had something to compare it’s answers to.
 Possible out put???
 *******************************************
  
-Results:
+###Results:
 Initially, after some tuning we got our problem setup to evolve a program that returned only 
 one non-zero error for the last 200 or so generations. The error map for the final generation of
 a run using this setup was as follows:	
@@ -67,4 +67,4 @@ use the integer 5 anywhere, which should be required to give workable answers, s
 able to have the program keep using 5, success may have been in our reach.
 
 
-You should make sure you document any tweaks or changes
+###You should make sure you document any tweaks or changes
