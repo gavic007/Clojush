@@ -72,7 +72,7 @@ After fixing expected-output, the best program of the last generation we ran ret
 errors for its final generation of 1001 as follows:										
 *Error Map: [0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 4 0 0 0 0 0]
 
-While this wasn’t terrible, it still proved to be frustrating as is so close to being solved but can't 
+While this wasn’t terrible, it still proved to be frustrating as it is so close to being solved but can't 
 seem to clear that final hurdle. This was supposed to be a more difficult program to solve, so it may
 be beyond the scope of running 1000 generations in our clojush implementation at this point. 
 One thing to note however is that the program that returned this error map appeared to not 
