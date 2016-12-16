@@ -95,11 +95,15 @@ but as previously mentioned we already added a number of tests to combat guessin
 the program needs to evolve the functionality to use two ways to get the the same number 
 in order to solve both cases.
 
-Adding arguments to the atom-generator section seemed fruitless, so the majority of efforts were focused on running the program to completion as many times as possible
-on an increasingly larger input set, as we tried to make the input-set more comprehensive each time. Another frustrating problem that came up was sometimes the program 
-would fail to use the integer 5 in its instructions, which the program should need in order to succeed. It would use it sometimes, so it definitely had access to it, 
-but it would often seem to ignore it for large sections of generations. Unable to force the program to use it, we just focused instead on giving the right combinations
-of inputs to make it realize the importance of that value.
+Adding arguments to the atom-generator section seemed fruitless, so the majority of efforts 
+were focused on running the program to completion as many times as possible on an
+increasingly larger input set, as we tried to make the input-set more comprehensive 
+each time. Another frustrating problem that came up was sometimes the program would fail 
+to use the integer 5 in its instructions, which the program should need in order to succeed. 
+It would use it sometimes, so it definitely had access to it, but it would often seem to 
+ignore it for large sections of generations. Unable to force the program to use it, we 
+just focused instead on giving the right combinations of inputs to make it realize the 
+importance of that value.
 
 We also limited the atom-generator’s exec instructions to only include exec_if, as the program shouldn’t need any others. This was also done because the problem
 kept pulling in exec_k and exec_s, which aren’t conducive to evolving a working solution. As we continued running the program trying to get it to solve, we kind of hit 
@@ -109,3 +113,6 @@ in the setup, and similarly the program should not need operators for any other 
 setup calls for. Adding other exec instructions like exec_when seemed to have no effect or sometimes even caused the program to stop using exec_if which it should need. 
 We tried a number of tweaks but most proved to be of little use to our default setup. Given more time, we probably would have conducted more runs, because it seemed our 
 program was close but kept crashing right before the finish line. This lesson was valuable moving forward as we are now aware of potential pitfalls.
+
+
+
