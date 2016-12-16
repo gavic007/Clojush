@@ -10,7 +10,7 @@ For our problem we chose one entitled "Make Chocolate" which is a logic puzzle d
 
 The prompt for the problem is as follows:
 
-Description excerpt from [codingbat.com]:
+Description excerpt from [codingbat.com] (http://codingbat.com/prob/p191363):
 *"We want to make a package of goal kilos of chocolate. We have small bars (1 kilo each) and big* 
 *bars (5 kilos each). Return the number of small bars to use, assuming we always use big bars* 
 *before small bars. Return -1 if it can't be done."*
@@ -76,6 +76,7 @@ While this wasn’t terrible, it still proved to be frustrating as is so close t
 seem to clear that final hurdle. This was supposed to be a more difficult program to solve, so it may
 be beyond the scope of running 1000 generations in our clojush implementation at this point. 
 One thing to note however is that the program that returned this error map appeared to not 
+be using the integer 5 consistently, which should be required to give workable answers, so if we were 
 able to have the program keep using 5, success may have been in our reach.
 
 
